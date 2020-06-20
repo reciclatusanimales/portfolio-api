@@ -1,22 +1,73 @@
 import React from "react"
-import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import Projects from "../components/Projects"
+import Blogs from "../components/Blogs"
+import Jobs from "../components/Jobs"
+import Services from "../components/Services"
+import Hero from "../components/Hero"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+
+  const {
+    allStrapiProjects: { nodes: projects },
+    allStrapiBlogs: { nodes: blogs },
+  } = data
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Hero />
+      <Services />
+      <Jobs />
+      <Projects projects={projects} title="featured projects" showLink />
+      <Blogs blogs={blogs} title="latest articles" showLink />
+    </Layout>
+  )
+}
 
 export default IndexPage
+
+export const query = graphql`
+  {
+    allStrapiProjects(filter: { featured: { eq: true } }) {
+      nodes {
+        github
+        id
+        description
+        title
+        url
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        stack {
+          id
+          title
+        }
+      }
+    }
+    allStrapiBlogs(sort: { fields: date, order: DESC }, limit: 3) {
+      nodes {
+        slug
+        content
+        desc
+        date(formatString: "MMMM Do, YYYY")
+        id
+        title
+        category
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
