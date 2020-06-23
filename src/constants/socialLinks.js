@@ -1,6 +1,6 @@
 import React from "react"
 import {
-  FaFacebookSquare,
+  FaGithub,
   FaLinkedin,
   FaDribbbleSquare,
   FaBehanceSquare,
@@ -10,8 +10,8 @@ import {
 const data = [
   {
     id: 1,
-    icon: <FaFacebookSquare className="social-icon"></FaFacebookSquare>,
-    url: "https://www.twitter.com",
+    icon: <FaGithub className="social-icon"></FaGithub>,
+    url: "https://github.com/danielreyesveas/",
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ const data = [
 const links = data.map(link => {
   return (
     <li key={link.id}>
-      <a href={link.url} className="social-link">
+      <a href={link.url} className="social-icon">
         {link.icon}
       </a>
     </li>
@@ -46,6 +46,6 @@ const links = data.map(link => {
 
 export default ({ styleClass }) => {
   return (
-    <ul className={`social-links ${styleClass ? styleClass : ""}`}>{links}</ul>
+    <ul className="social-icons">{links}</ul>
   )
 }

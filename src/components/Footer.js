@@ -1,15 +1,16 @@
-import React from "react"
+import React, { useEffect } from "react"
 import SocialLinks from "../constants/socialLinks"
 const Footer = () => {
+
+  useEffect(() => {
+    const date = document.querySelector("#date");
+    date.innerHTML = new Date().getFullYear();
+  }, []);
+
   return (
     <footer className="footer">
-      <div>
-        <SocialLinks styleClass="footer-links"></SocialLinks>
-        <h4>
-          copyright&copy;{new Date().getFullYear()}
-          <span> WebDev </span> all rights reserved
-        </h4>
-      </div>
+      <SocialLinks className="footer-links"></SocialLinks>
+      <p>&copy; <span id="date"></span> John Doe. All rights reserved.</p>
     </footer>
   )
 }

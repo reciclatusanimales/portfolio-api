@@ -1,15 +1,17 @@
 import React from "react"
-
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import SEO from "../components/SEO"
+import Hero from "../components/Hero"
+import Services from "../components/Services"
+import Jobs from "../components/Jobs"
+import About from "../components/About"
+import Skills from "../components/Skills"
+import Timeline from "../components/Timeline"
 import Projects from "../components/Projects"
 import Blogs from "../components/Blogs"
-import Jobs from "../components/Jobs"
-import Services from "../components/Services"
-import Hero from "../components/Hero"
-
-const IndexPage = ({ data }) => {
-
+import LatestWorks from "../components/LatestWorks"
+import SEO from "../components/SEO"
+export default ({ data }) => {
   const {
     allStrapiProjects: { nodes: projects },
     allStrapiBlogs: { nodes: blogs },
@@ -17,18 +19,20 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Home" description="this is our home page" />
       <Hero />
+      <About />
       <Services />
+      <LatestWorks projects={projects} />
+      <Skills />
+      {/* <Timeline /> */}
       <Jobs />
-      <Projects projects={projects} title="featured projects" showLink />
+      {/* <Projects projects={projects} title="featured projects" showLink /> */}
+      {/* Let's Get In Touch */}
       <Blogs blogs={blogs} title="latest articles" showLink />
     </Layout>
   )
 }
-
-export default IndexPage
-
 export const query = graphql`
   {
     allStrapiProjects(filter: { featured: { eq: true } }) {
