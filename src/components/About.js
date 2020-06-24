@@ -48,7 +48,7 @@ const About = () => {
                 expedita, maiores velit quo facilis qui hic voluptatum voluptas ea
                 officiis maxime?
             </p>
-            <a href="about.html" className="btn about-btn">about me</a>
+            {/* <a href="about.html" className="btn about-btn">about me</a> */}
         </article>
       </div>
     </section>

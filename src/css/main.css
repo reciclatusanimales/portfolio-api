@@ -67,6 +67,9 @@ body {
   line-height: 1.5;
   font-size: 0.875rem;
 }
+button:focus {
+  outline:0 !important;
+}
 ul {
   list-style-type: none;
 }
@@ -733,10 +736,10 @@ Projects
     height: 100%;
   }
   .project-1 {
-    grid-area: b;
+    grid-area: a;
   }
   .project-2 {
-    grid-area: a;
+    grid-area: b;
   }
   .project-3 {
     grid-area: c;
@@ -832,7 +835,7 @@ Skills
 @media screen and (min-width: 768px) {
   .skills-center {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     column-gap: 2rem;
   }
 }
@@ -850,6 +853,12 @@ Skills
   margin-bottom: 0.5rem;
   text-transform: capitalize;
   color: var(--clr-primary-1);
+}
+.skill:hover .skill-text {
+  visibility: visible;
+}
+.skill:hover .skill-value {
+  background: var(--clr-primary-5);
 }
 .skill-container {
   height: 1rem;
@@ -877,6 +886,7 @@ Skills
   width: 80%;
 }
 .skill-text {
+  visibility: hidden;
   position: absolute;
   top: -2rem;
   left: 50%;

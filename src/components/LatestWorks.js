@@ -19,7 +19,7 @@ const LatestWorks = ({ projects }) => {
 
         {projects.map((project, index) => {
           return (
-            <a href="projects.html" className={`project-${index}`} key={index}>
+            <a href={project.url} className={`project-${index}`} key={index} target="_blank">
               <article className="project">
                 <Image fluid={project.image.childImageSharp.fluid} className="project-img" />
                 <div className="project-info">
