@@ -134,3 +134,4 @@ dmypy.json
 db.database
 passenger_wsgi.py
 tmp/
+static/
