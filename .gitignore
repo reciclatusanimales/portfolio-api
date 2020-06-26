@@ -132,3 +132,5 @@ dmypy.json
 
 # Porfolio
 db.database
+passenger_wsgi.py
+tmp/
