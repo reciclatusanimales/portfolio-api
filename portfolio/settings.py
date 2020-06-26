@@ -42,6 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'corsheaders',
+    'django_summernote',
+    'rest_framework',
+    'taggit',
+
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +134,12 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [ env('STATICFILES_DIRS', default=BASE_DIR + "/assets") ]
 STATIC_ROOT = env('STATIC_ROOT', default=BASE_DIR + "/static")
 MEDIA_ROOT = env('MEDIA_ROOT', default=BASE_DIR + "/media")
+
+
+# API
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8008',
+)
