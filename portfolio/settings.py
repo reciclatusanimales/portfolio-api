@@ -124,6 +124,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATICFILES_DIRS = [ BASE_DIR + "/assets"]
+STATICFILES_DIRS = [ env('STATICFILES_DIRS', default=BASE_DIR + "/assets") ]
 STATIC_ROOT = env('STATIC_ROOT', default=BASE_DIR + "/static")
 MEDIA_ROOT = env('MEDIA_ROOT', default=BASE_DIR + "/media")
