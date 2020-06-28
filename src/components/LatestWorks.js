@@ -24,7 +24,7 @@ const LatestWorks = ({ projects }) => {
                 {/* <Image fluid={project.image.childImageSharp.fluid} className="project-img" /> */}
                 <div className="work-info">
                   <h4>{project.title}</h4>
-                  <p>{project.description}</p>
+                  <p>{project.subtitle}</p>
                 </div>
               </article>
             </a>

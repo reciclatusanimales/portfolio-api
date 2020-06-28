@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { FaGithubSquare, FaShareSquare } from "react-icons/fa"
-const Project = ({ description, title, github, stack, url, image, index }) => {
+const Project = ({ description, title, subtitle, github, stack, url, image, index }) => {
   stack = []
   return (
     <article className="project">
