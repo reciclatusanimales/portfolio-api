@@ -31,13 +31,25 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-strapi`,
+      resolve: "gatsby-source-custom-api",
+        options: {
+          url: "http://reciclatusanimales.com/api/projects",
+          rootKey: "projects",
+      }
+    },
+    {
+      resolve: "gatsby-source-custom-api",
+        options: {
+          url: "http://reciclatusanimales.com/api/jobs",
+          rootKey: "jobs",
+      }
+    },
+    {
+    resolve: "gatsby-source-custom-api",
       options: {
-        apiURL: `http://localhost:1337`,
-        queryLimit: 1000, // Default to 100
-        contentTypes: [`jobs`, `projects`, `blogs`],
-        singleTypes: [`about`]
-      },
+          url: "http://reciclatusanimales.com/api/blogs",
+          rootKey: "blogs",
+      }
     },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,

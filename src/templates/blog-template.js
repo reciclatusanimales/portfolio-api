@@ -5,14 +5,24 @@ import ReactMarkdown from "react-markdown"
 import SEO from "../components/SEO"
 
 const ComponentName = ({ data }) => {
-  const { content, title, desc } = data.blog
+  console.log(data)
+  const { content, title, description, category, image } = data.blog
 
   return (
     <Layout>
-      <SEO title={title} description={desc} />
+      <SEO title={title} description={description} />
       <section className="blog-template">
         <div className="section-center">
           <article className="blog-content">
+            <h1>{title}</h1>
+            <h2>Subtitle</h2>
+
+            <ul>
+              <li>{category.name}</li>
+            </ul>
+            
+            <img src={image} alt="about" />
+
             <ReactMarkdown source={content} />
           </article>
           <Link to="/blog" className="btn center-btn">
@@ -26,10 +36,15 @@ const ComponentName = ({ data }) => {
 
 export const query = graphql`
   query GetSingleBlog($slug: String) {
-    blog: strapiBlogs(slug: { eq: $slug }) {
+    blog: blogs(slug: { eq: $slug }) {
       content
       title
-      desc
+      description
+      image
+      category {
+        id
+        name
+      }
     }
   }
 `

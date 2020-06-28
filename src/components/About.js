@@ -1,26 +1,8 @@
 import React from "react"
-import Image from "gatsby-image"
-import { graphql, useStaticQuery } from "gatsby"
 import img from "../assets/about-img.jpeg"
 
-const query = graphql`
-  {
-    file(relativePath: { eq: "about-img.jpeg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
 
 const About = () => {
-  const {
-    file: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery(query)
 
   return (
     <section className="section about">
