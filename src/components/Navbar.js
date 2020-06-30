@@ -2,8 +2,10 @@ import React, { useEffect } from "react"
 import logo from "../assets/logo.svg"
 import PageLinks from "../constants/links"
 import { FaAlignRight } from "react-icons/fa"
+import ThemeSwitch from "./ThemeSwitch"
 
-const Navbar = ({ toggleSidebar }) => {
+
+const Navbar = ({ toggleSidebar, theme }) => {
 
   useEffect(() => {
     // add fixed class to navbar
@@ -21,7 +23,7 @@ const Navbar = ({ toggleSidebar }) => {
     <nav className="nav" id="nav">
       <div className="nav-center">
         <div className="nav-header">
-          <img className="nav-logo" src={logo} alt="logo" />
+          <ThemeSwitch theme={theme}/>
           <button type="button" className="nav-btn" id="nav-btn" onClick={toggleSidebar}>
             <FaAlignRight></FaAlignRight>
           </button>

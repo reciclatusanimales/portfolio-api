@@ -9,6 +9,7 @@ import Skills from "../components/Skills"
 import Blogs from "../components/Blogs"
 import LatestWorks from "../components/LatestWorks"
 import SEO from "../components/SEO"
+import { ThemeProvider } from "../components/ThemeContext"
 
 export default ({ data }) => {
   const {
@@ -16,21 +17,20 @@ export default ({ data }) => {
     allProjects: { nodes: projects },
   } = data
 
-  useEffect(() => {
-
-  }, [])
 
   return (
-    <Layout>
-      <SEO title="Home" description="this is our home page" />
-      <Hero />
-      <About />
-      <Services />
-      <LatestWorks projects={projects} />
-      <Skills />
-      <Jobs />
-      <Blogs blogs={blogs} title="latest articles" showLink />
-    </Layout>
+    <ThemeProvider>
+      <Layout>
+        <SEO title="Home" description="this is our home page" />
+        <Hero />
+        <About />
+        <Services />
+        <LatestWorks projects={projects} />
+        <Skills />
+        <Jobs />
+        <Blogs blogs={blogs} title="latest articles" showLink />
+      </Layout>
+    </ThemeProvider>
   )
 }
 export const query = graphql`

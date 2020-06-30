@@ -13,18 +13,31 @@ Variables
 
 :root {
   /* dark shades of primary color*/
-  --clr-primary-1: hsl(43, 86%, 17%);
-  --clr-primary-2: hsl(43, 77%, 27%);
-  --clr-primary-3: hsl(43, 72%, 37%);
-  --clr-primary-4: hsl(42, 63%, 48%);
+  --clr-primary-1: hsl(353, 50%, 15%);
+
+  --clr-primary-2: hsl(353, 60%, 20%);
+
+  --clr-primary-3: hsl(353, 68%, 23%);
+
+  --clr-primary-4: hsl(353, 70%, 25%);
+
   /* primary/main color */
-  --clr-primary-5: hsl(42, 78%, 60%);
+
+  --clr-primary-5: hsl(353, 72%, 28%);
+
   /* lighter shades of primary color */
-  --clr-primary-6: hsl(43, 89%, 70%);
-  --clr-primary-7: hsl(43, 90%, 76%);
-  --clr-primary-8: hsl(45, 86%, 81%);
-  --clr-primary-9: hsl(45, 90%, 88%);
-  --clr-primary-10: hsl(45, 100%, 96%);
+
+  --clr-primary-6: hsl(347, 70%, 34%);
+
+  --clr-primary-7: hsl(347, 60%, 50%);
+
+  --clr-primary-8: hsl(347, 53%, 50%);
+
+  --clr-primary-9: hsl(347, 50%, 61%);
+
+  --clr-primary-10: hsl(347, 42%, 70%);
+
+
   /* darkest grey - used for headings */
   --clr-grey-1: hsl(209, 61%, 16%);
   --clr-grey-2: hsl(211, 39%, 23%);
@@ -42,7 +55,7 @@ Variables
   --ff-secondary: "Open Sans", sans-serif;
   --transition: all 0.3s linear;
   --spacing: 0.2rem;
-  --radius: 0.25rem;
+  --radius: 0.5rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
