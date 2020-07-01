@@ -1,30 +1,31 @@
 import React from "react"
-import img from "../assets/hero-img.jpeg"
+import img from "../../assets/hero-img.jpeg"
 import { Link } from "gatsby"
-import SocialLinks from "../constants/socialLinks"
+import SocialLinks from "../../constants/socialLinks"
+import { Header, HeroCenter, HeroInfo, HeroImg, HeroTitle } from './Hero.stlyes'
 
 const Hero = () => {
 
   return (
-    <header className="hero">
-      <div className="section-center hero-center">
-        <article className="hero-info">
-          <div>
+    <Header>
+      <HeroCenter className="section-center">
+        <HeroInfo>
+          <HeroTitle>
             <div className="underline"></div>
             <h1>i'm john</h1>
             <h4>freelance web and mobile UI/UX Designer</h4>
             <Link to="/contact" className="btn">
-              contact me
+              contact
             </Link>
-            <SocialLinks />
-          </div>
-        </article>
-        <article className="hero-img">
+            {/* <SocialLinks /> */}
+          </HeroTitle>
+        </HeroInfo>
+        <HeroImg>
           {/* <Image fluid={fluid} className="hero-photo" /> */}
           <img src={img} className="hero-photo" alt="john doe" />
-        </article>
-      </div>
-    </header>
+        </HeroImg>
+      </HeroCenter>
+    </Header>
   )
 }
 

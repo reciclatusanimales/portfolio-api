@@ -1,6 +1,4 @@
-import React from "react"
-import { Link } from "gatsby"
-const data = [
+export default [
   {
     id: 1,
     text: "home",
@@ -22,20 +20,3 @@ const data = [
     url: "/contact/",
   },
 ]
-
-const tempLinks = data.map(link => {
-  return (
-    <li key={link.id}>
-      <Link to={link.url}>{link.text}</Link>
-    </li>
-  )
-})
-// I KNOW WE CAN COMBINE IT !!!!!
-
-export default () => {
-  return (
-    <ul className="nav-links">
-      {tempLinks}
-    </ul>
-  )
-}

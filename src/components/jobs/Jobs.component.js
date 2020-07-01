@@ -1,8 +1,8 @@
 import React from "react"
-import Title from "./Title"
-import { FaAngleDoubleRight } from "react-icons/fa"
+import Title from "../Title"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
+import { JobsCenter, BtnContainer, JobInfo, JobDescription, JobIcon, JobButton } from './Jobs.styles'
 
 const query = graphql`
   {
@@ -24,40 +24,41 @@ const Jobs = () => {
   } = data
   const [value, setValue] = React.useState(0)
   const { company, position, date } = jobs[value]
-const desc = []
+  const desc = []
+
   return (
     <section className="section jobs">
       <Title title="expierence" />
-      <div className="jobs-center">
+      <JobsCenter>
         {/* btn container */}
-        <div className="btn-container">
+        <BtnContainer>
           {jobs.map((item, index) => {
             return (
-              <button
+              <JobButton
                 key={item.id}
                 onClick={() => setValue(index)}
-                className={`job-btn ${index === value && "active-btn"}`}
+                active={index === value ? true : false}
               >
                 {item.company}
-              </button>
+              </JobButton>
             )
           })}
-        </div>
+        </BtnContainer>
         {/* job info */}
-        <article className="job-info">
+        <JobInfo>
           <h3>{position}</h3>
           <h4>{company}</h4>
-          <p className="job-date">{date}</p>
+          <p>{date}</p>
           {desc.map(item => {
             return (
-              <div key={item.id} className="job-desc">
-                <FaAngleDoubleRight className="job-icon"></FaAngleDoubleRight>
+              <JobDescription key={item.id}>
+                <JobIcon />
                 <p>{item.name}</p>
-              </div>
+              </JobDescription>
             )
           })}
-        </article>
-      </div>
+        </JobInfo>
+      </JobsCenter>
       <Link to="/about" className="btn center-btn">
         more info
       </Link>

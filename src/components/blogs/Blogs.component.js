@@ -1,16 +1,18 @@
 import React from "react"
-import Title from "./Title"
-import Blog from "./Blog"
+import Title from "../Title"
+import Blog from "../blog/Blog.component"
 import { Link } from "gatsby"
+import { BlogsCenter } from './Blogs.styles'
+
 export const Blogs = ({ blogs, title, showLink }) => {
   return (
     <section className="section">
       <Title title={title} />
-      <div className="section-center blogs-center">
+      <BlogsCenter className="section-center">
         {blogs.map(blog => {
           return <Blog key={blog.id} {...blog} />
         })}
-      </div>
+      </BlogsCenter>
       {showLink && (
         <Link to="/blog" className="btn center-btn">
           blog

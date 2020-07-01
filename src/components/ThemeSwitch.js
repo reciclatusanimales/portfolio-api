@@ -55,15 +55,9 @@ const IOSSwitch = withStyles((theme) => ({
     );
 });
 
-export default function ThemeSwitch({theme}) {
-    const [state, setState] = React.useState(false);
-
-    const handleChange = (event) => {
-        theme.updateTheme(theme.name === "light" ? "dark" : "light")
-        setState(!state)
-    };
-
-    return (
-        <IOSSwitch checked={state} onChange={handleChange} name="checked" />
-    );
+export default function ThemeSwitch({theme, toggleTheme}) {
+console.log(theme)
+  return (
+    <IOSSwitch name="checked" onChange={toggleTheme} checked={theme==='dark'} />
+  );
 }

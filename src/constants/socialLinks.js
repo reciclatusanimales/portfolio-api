@@ -7,7 +7,7 @@ import {
   FaTwitterSquare,
 } from "react-icons/fa"
 
-const data = [
+export default [
   {
     id: 1,
     icon: <FaGithub className="social-icon"></FaGithub>,
@@ -34,18 +34,3 @@ const data = [
     url: "https://www.twitter.com",
   },
 ]
-const links = data.map(link => {
-  return (
-    <li key={link.id}>
-      <a href={link.url} className="social-icon">
-        {link.icon}
-      </a>
-    </li>
-  )
-})
-
-export default ({ styleClass }) => {
-  return (
-    <ul className="social-icons">{links}</ul>
-  )
-}

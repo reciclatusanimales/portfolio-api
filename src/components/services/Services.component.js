@@ -1,24 +1,26 @@
 import React from "react"
-import Title from "./Title"
-import services from "../constants/services"
+import Title from "../Title"
+import services from "../../constants/services"
+import { ServicesCenter, Service } from './Services.styles'
+
 const Services = () => {
   return (
     <section className="section bg-grey">
       <Title title="services" />
-      <div className="section-center services-center">
+      <ServicesCenter>
         {services.map(service => {
           const { id, icon, title, text } = service
 
           return (
-            <article key={id} className="service">
+            <Service key={id}>
               {icon}
               <h4>{title}</h4>
               <div className="underline"></div>
               <p>{text}</p>
-            </article>
+            </Service>
           )
         })}
-      </div>
+      </ServicesCenter>
     </section>
   )
 }

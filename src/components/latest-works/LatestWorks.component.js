@@ -1,4 +1,5 @@
 import React from "react"
+import { Text } from './LatestWorks.styles'
 
 const LatestWorks = ({ projects }) => {
 
@@ -7,12 +8,12 @@ const LatestWorks = ({ projects }) => {
       <div className="section-title">
         <h2>latest works</h2>
         <div className="underline"></div>
-        <p className="latest-works-text">
+        <Text>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt sed
           reiciendis quis provident vero cum accusamus illum perferendis
           debitis, alias porro? Incidunt, veniam? Dicta adipisci accusamus
           officia temporibus inventore a.
-        </p>
+        </Text>
       </div>      
       <div className="section-center latest-works-center">
 

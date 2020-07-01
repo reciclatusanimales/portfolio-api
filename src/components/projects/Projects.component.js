@@ -1,12 +1,14 @@
 import React from "react"
-import Title from "./Title"
-import Project from "./Project"
+import Title from "../Title"
+import Project from "../project/Project.component"
 import { Link } from "gatsby"
+import { ProjectsContainer } from "./Projects.styles"
+
 const Projects = ({ projects, title, showLink }) => {
   return (
-    <section className="section projects">
+    <ProjectsContainer className="section">
       <Title title={title} />
-      <div className="section-center projects-center">
+      <div className="section-center">
         {projects.map((project, index) => {
           return <Project key={project.id} index={index} {...project} />
         })}
@@ -16,7 +18,7 @@ const Projects = ({ projects, title, showLink }) => {
           projects
         </Link>
       )}
-    </section>
+    </ProjectsContainer>
   )
 }
 

@@ -1,21 +1,22 @@
 import React from "react"
-import img from "../assets/about-img.jpeg"
+import img from "../../assets/about-img.jpeg"
+import { AboutCenter, AboutImg, AboutInfo, AboutTitle } from "../about/About.styles"
 
 
 const About = () => {
 
   return (
     <section className="section about">
-      <div className="section-center about-center">
-        <article className="about-img">
+      <AboutCenter className="section-center">
+        <AboutImg>
           <img src={img} className="hero-photo" alt="about" />
           {/* <Image fluid={fluid} className="project-img2" /> */}
-        </article>
-        <article className="about-info">
-            <div className="section-title about-title">
+        </AboutImg>
+        <AboutInfo>
+            <AboutTitle className="section-title">
                 <h2>about</h2>
                 <div className="underline"></div>
-            </div>
+            </AboutTitle>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
                 atque incidunt eveniet nisi beatae aliquid illo magni ullam animi
@@ -31,8 +32,8 @@ const About = () => {
                 officiis maxime?
             </p>
             {/* <a href="about.html" className="btn about-btn">about me</a> */}
-        </article>
-      </div>
+        </AboutInfo>
+      </AboutCenter>
     </section>
   )
 }
