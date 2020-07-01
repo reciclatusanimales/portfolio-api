@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 export const BlogContainer = styled(Link)`
     display: block;
     margin-bottom: 2rem;
-    background: var(--clr-grey-10);
+    background: ${({ theme }) => theme.grey10};
     border-radius: var(--radius);
     box-shadow: var(--light-shadow);
     transition: var(--transition);
@@ -41,7 +41,7 @@ export const BlogCard = styled.div`
     padding: 1.5rem 1rem;
 
     h4 {
-       color: var(--clr-grey-1);
+       color: ${({ theme }) => theme.grey1};
     }
 `;
 
@@ -53,12 +53,12 @@ export const BlogFooter = styled.div`
     p {
         margin-bottom: 0;
         font-weight: bold;
-        color: var(--clr-grey-5);
+        color: ${({ theme }) => theme.grey5};
     }
     p:first-of-type {
         display: inline-block;
-        background: var(--clr-grey-9);
-        color: var(--clr-grey-5);
+        background: ${({ theme }) => theme.grey9};
+        color: ${({ theme }) => theme.grey5};
         margin-right: 0.5rem;
         padding: 0.25rem 0.5rem;
         border-radius: var(--radius);

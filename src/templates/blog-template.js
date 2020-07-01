@@ -4,33 +4,35 @@ import Layout from "../components/Layout"
 import ReactMarkdown from "react-markdown"
 import SEO from "../components/SEO"
 
-const ComponentName = ({ data }) => {
-  console.log(data)
+import { useTheme } from '../hooks/useTheme'
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from '../constants/themes';
+import { GlobalStyles } from '../global';
+import BlogDetail from '../components/blog-detail/BlogDetail.component'
+
+const BlogTemplate = ({ data }) => {
+
   const { content, title, description, category, image } = data.blog
 
+  const [theme, toggleTheme, componentMounted] = useTheme();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  if (!componentMounted) {
+    return <div />
+  }
+
   return (
-    <Layout>
-      <SEO title={title} description={description} />
-      <section className="blog-template">
-        <div className="section-center">
-          <article className="blog-content">
-            <h1>{title}</h1>
-            <h2>Subtitle</h2>
+    <ThemeProvider theme={themeMode}>
+      <>
+      <GlobalStyles />
+        <Layout theme={theme} toggleTheme={toggleTheme}>
+          <SEO title={title} description={description} />
+          
+          <BlogDetail blog={data.blog} />
 
-            <ul>
-              <li>{category.name}</li>
-            </ul>
-            
-            <img src={image} alt="about" />
-
-            <ReactMarkdown source={content} />
-          </article>
-          <Link to="/blog" className="btn center-btn">
-            blog
-          </Link>
-        </div>
-      </section>
-    </Layout>
+        </Layout>
+      </>
+    </ThemeProvider>
   )
 }
 
@@ -49,4 +51,4 @@ export const query = graphql`
   }
 `
 
-export default ComponentName
+export default BlogTemplate

@@ -4,18 +4,35 @@ import { graphql } from "gatsby"
 import Blogs from "../components/blogs/Blogs.component"
 import SEO from "../components/SEO"
 
+import { useTheme } from '../hooks/useTheme'
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from '../constants/themes';
+import { GlobalStyles } from '../global';
+
 const Blog = ({
   data: {
     allBlogs: { nodes: blogs },
   },
 }) => {
+  const [theme, toggleTheme, componentMounted] = useTheme();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  if (!componentMounted) {
+    return <div />
+  }
+
   return (
-    <Layout>
-      <SEO title="Blog" />
-      <section className="blog-page">
-        <Blogs blogs={blogs} title="blog" />
-      </section>
-    </Layout>
+    <ThemeProvider theme={themeMode}>
+      <>
+        <GlobalStyles />
+        <Layout theme={theme} toggleTheme={toggleTheme}>
+          <SEO title="Blog" />
+          <section className="blog-page">
+            <Blogs blogs={blogs} title="blog" />
+          </section>
+        </Layout>
+      </>
+    </ThemeProvider>
   )
 }
 

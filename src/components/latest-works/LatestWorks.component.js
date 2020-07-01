@@ -1,5 +1,5 @@
 import React from "react"
-import { Text } from './LatestWorks.styles'
+import { Text, LatestWorksCenter, WorkImg, Work, WorkInfo } from './LatestWorks.styles'
 
 const LatestWorks = ({ projects }) => {
 
@@ -15,24 +15,24 @@ const LatestWorks = ({ projects }) => {
           officia temporibus inventore a.
         </Text>
       </div>      
-      <div className="section-center latest-works-center">
+      <LatestWorksCenter className="section-center">
 
         {projects.map((project, index) => {
           return (
             <a href={project.url} className={`work-${index}`} key={index} target="_blank" rel="noreferrer">
-              <article className="work">
-                <img src={project.image} className="work-img" alt="project" />
+              <Work>
+                <WorkImg src={project.image} alt="project" />
                 {/* <Image fluid={project.image.childImageSharp.fluid} className="project-img" /> */}
-                <div className="work-info">
+                <WorkInfo>
                   <h4>{project.title}</h4>
                   <p>{project.subtitle}</p>
-                </div>
-              </article>
+                </WorkInfo>
+              </Work>
             </a>
           )
         })}
         
-      </div>
+      </LatestWorksCenter>
     </section>
   )
 }

@@ -6,7 +6,7 @@ export const Side = styled.aside`
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--clr-grey-10);
+    background: ${({ theme }) => theme.grey10};
     z-index: 4;
     display: grid;
     place-items: center;
@@ -58,7 +58,7 @@ export const SidebarLinks = styled.ul`
 
         a {
             text-transform: capitalize;
-            color: var(--clr-grey-1);
+            color: ${({ theme }) => theme.grey1};
             font-weight: bold;
             letter-spacing: var(--spacing);
             -webkit-transition: var(--transition);
@@ -66,7 +66,7 @@ export const SidebarLinks = styled.ul`
         }
 
         a:hover {
-            color: var(--clr-primary-5);
+            color: ${({ theme }) => theme.primary5};
         }
     }
 
@@ -82,21 +82,21 @@ export const SidebarLinks = styled.ul`
             text-transform: capitalize;
             -webkit-transition: var(--transition);
             transition: var(--transition);
-            color: var(--clr-grey-5);
+            color: ${({ theme }) => theme.grey5};
             letter-spacing: var(--spacing);
             display: inline-block;
             margin-bottom: 1.5rem;
         }
 
         a:hover {
-            color: var(--clr-primary-5);
+            color: ${({ theme }) => theme.primary5};
         }
         
         li a {
             display: block;
             text-align: center;
             text-transform: capitalize;
-            color: var(--clr-grey-5);
+            color: ${({ theme }) => theme.grey5};
             letter-spacing: var(--spacing);
             margin-bottom: 0.5rem;
             font-size: 2rem;
@@ -105,8 +105,8 @@ export const SidebarLinks = styled.ul`
         }
 
         li a:hover {
-            background: var(--clr-primary-9);
-            color: var(--clr-primary-5);
+            background: ${({ theme }) => theme.primary9};
+            color: ${({ theme }) => theme.primary5};
         }
     `}
 
@@ -187,11 +187,11 @@ export const SidebarSocialIcons = styled.ul`
 export const SidebarSocialIcon = styled.a`
 
     font-size: 1.5rem;
-    color: var(--clr-grey-1);
+    color: ${({ theme }) => theme.grey1};
     -webkit-transition: var(--transition);
     transition: var(--transition);
 
     &:hover {
-        color: var(--clr-primary-5);
+        color: ${({ theme }) => theme.primary5};
     }
 `;

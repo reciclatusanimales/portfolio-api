@@ -1,5 +1,5 @@
 import React from "react"
-import Title from "../Title"
+import Title from "../title/Title.component"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
 import { JobsCenter, BtnContainer, JobInfo, JobDescription, JobIcon, JobButton } from './Jobs.styles'
@@ -33,11 +33,12 @@ const Jobs = () => {
         {/* btn container */}
         <BtnContainer>
           {jobs.map((item, index) => {
+            console.log(index === value)
             return (
               <JobButton
                 key={item.id}
                 onClick={() => setValue(index)}
-                active={index === value ? true : false}
+                active={index === value}
               >
                 {item.company}
               </JobButton>

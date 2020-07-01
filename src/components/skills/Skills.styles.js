@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const SkillsContainer = styled.section`
-    background: var(--clr-primary-9);
+    background: ${({ theme }) => theme.primary9};
     
     h3 {
         margin: 1.5rem 0;
-        color: var(--clr-primary-1);
+        color: ${({ theme }) => theme.primary1};
     }
 `;
 
@@ -32,7 +32,7 @@ export const Skill = styled.div`
     p {
         margin-bottom: 0.5rem;
         text-transform: capitalize;
-        color: var(--clr-primary-1);
+        color: ${({ theme }) => theme.primary1};
     }    
 `;
 
@@ -43,7 +43,7 @@ export const SkillValue = styled.div`
     left: 0;
     height: 100%;
     width: 50%;
-    background: var(--clr-primary-5);
+    background: ${({ theme }) => theme.primary5};
     border-radius: var(--radius);
     display: grid;
     -webkit-box-align: center;
@@ -63,6 +63,6 @@ export const SkillContainer = styled.div`
         visibility: visible;
     }
     &:hover > ${SkillValue} {
-        background: var(--clr-primary-5);
+        background: ${({ theme }) => theme.primary5};
     }
 `;

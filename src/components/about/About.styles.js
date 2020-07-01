@@ -20,7 +20,7 @@ export const AboutImg = styled.article`
             position: absolute;
             width: 100%;
             height: 100%;
-            border: 0.25rem solid var(--clr-primary-5);
+            border: 0.25rem solid ${({ theme }) => theme.primary5};
             top: 2rem;
             right: -2rem;
             border-radius: var(--radius);

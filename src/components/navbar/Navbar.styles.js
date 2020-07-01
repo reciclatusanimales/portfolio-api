@@ -7,10 +7,10 @@ export const Nav = styled.nav`
   align-items: center;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  padding: 1rem;
+  padding: 1rem;  
 
   @media screen and (min-width: 768px) {
-    background: var(--clr-primary-10);
+    background: ${({ theme }) => theme.primary10};
   }
 `;
 
@@ -37,7 +37,7 @@ export const NavHeader = styled.div`
 export const NavBtn = styled.button`
   background: transparent;
   border-color: transparent;
-  color: var(--clr-primary-5);
+  color: ${({ theme }) => theme.primary5};
   font-size: 2rem;
   cursor: pointer;
   /* show later */
@@ -63,7 +63,7 @@ export const NavLinks = styled.ul`
 
     a {
       text-transform: capitalize;
-      color: var(--clr-grey-1);
+      color: ${({ theme }) => theme.grey1};
       font-weight: bold;
       letter-spacing: var(--spacing);
       -webkit-transition: var(--transition);
@@ -71,7 +71,7 @@ export const NavLinks = styled.ul`
     }
 
     a:hover {
-      color: var(--clr-primary-5);
+      color: ${({ theme }) => theme.primary5};
     }
   }
 `;

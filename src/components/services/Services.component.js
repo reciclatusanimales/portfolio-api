@@ -1,5 +1,5 @@
 import React from "react"
-import Title from "../Title"
+import Title from "../title/Title.component"
 import services from "../../constants/services"
 import { ServicesCenter, Service } from './Services.styles'
 
@@ -7,7 +7,7 @@ const Services = () => {
   return (
     <section className="section bg-grey">
       <Title title="services" />
-      <ServicesCenter>
+      <div className="section-center services-center">
         {services.map(service => {
           const { id, icon, title, text } = service
 
@@ -20,7 +20,7 @@ const Services = () => {
             </Service>
           )
         })}
-      </ServicesCenter>
+      </div>
     </section>
   )
 }

@@ -1,6 +1,13 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
+import styled from 'styled-components' 
+
+const Container = styled.div`
+  position: fixed;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+`
 
 const IOSSwitch = withStyles((theme) => ({
     root: {
@@ -56,8 +63,10 @@ const IOSSwitch = withStyles((theme) => ({
 });
 
 export default function ThemeSwitch({theme, toggleTheme}) {
-console.log(theme)
+
   return (
-    <IOSSwitch name="checked" onChange={toggleTheme} checked={theme==='dark'} />
+    <Container>  
+      <IOSSwitch name="checked" onChange={toggleTheme} checked={theme==='dark'} />
+    </Container>
   );
 }

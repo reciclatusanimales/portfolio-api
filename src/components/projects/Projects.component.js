@@ -1,5 +1,5 @@
 import React from "react"
-import Title from "../Title"
+import Title from "../title/Title.component"
 import Project from "../project/Project.component"
 import { Link } from "gatsby"
 import { ProjectsContainer } from "./Projects.styles"

@@ -37,7 +37,7 @@ export const Service = styled.div`
         transition: var(--transition);
     }
     &:hover {
-        background: var(--clr-primary-5);
+        background: ${({ theme }) => theme.primary5};
         color: var(--clr-white);
     }
     &:hover p {

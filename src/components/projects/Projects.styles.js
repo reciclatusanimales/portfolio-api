@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
 export const ProjectsContainer = styled.section`
-    background: var(--clr-grey-10);
+    background: ${({ theme }) => theme.grey10};
 `;

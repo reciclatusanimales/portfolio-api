@@ -22,12 +22,12 @@ export const FooterSocialIcons = styled.ul`
 `;
 
 export const FooterSocialIcon = styled.a`
-    color: var(--clr-primary-5);
+    color: ${({ theme }) => theme.primary5};
     font-size: 1.5rem;
     -webkit-transition: var(--transition);
     transition: var(--transition);
   
     &:hover {
-        color: var(--clr-primary-5);
+        color: ${({ theme }) => theme.primary5};
     }
 `;

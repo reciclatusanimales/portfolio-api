@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { FaAngleDoubleRight } from "react-icons/fa"
 
 export const JobsCenter = styled.div`
@@ -34,8 +34,8 @@ export const JobInfo = styled.div`
     }
     h4 {
         text-transform: uppercase;
-        color: var(--clr-grey-5);
-        background: var(--clr-grey-9);
+        color: ${({ theme }) => theme.grey5};
+        background: ${({ theme }) => theme.grey9};
         display: inline-block;
         padding: 0.375rem 0.75rem;
         border-radius: var(--radius);
@@ -53,8 +53,8 @@ export const JobInfo = styled.div`
         line-height: 1;
     }
     p:hover {
-        color: var(--clr-primary-5);
-        box-shadow: 0 2px var(--clr-primary-5);
+        color: ${({ theme }) => theme.primary5};
+        box-shadow: 0 2px ${({ theme }) => theme.primary5};
     }
     
 `;
@@ -69,13 +69,13 @@ export const JobDescription = styled.div`
     
     p {
         margin-bottom: 0;
-        color: var(--clr-grey-3);
+        color: ${({ theme }) => theme.grey3};
     }
 
 `;
 
 export const JobIcon = styled(FaAngleDoubleRight)`
-    color: var(--clr-primary-5);
+    color: ${({ theme }) => theme.primary5};
 `;
 
 export const JobButton = styled.button`
@@ -90,25 +90,27 @@ export const JobButton = styled.button`
     padding: 0.25rem 0;
     line-height: 1;
 
-    ${({ active }) => active && `
-        color: var(--clr-primary-5);
-        box-shadow: 0 2px var(--clr-primary-5);
+    &:hover {
+        color: ${({ theme }) => theme.primary5};
+        box-shadow: 0 2px ${({ theme }) => theme.primary5};
+    }
+    
+    ${props => props.active && css`
+        color: ${({ theme }) => theme.primary5};
+        box-shadow: 0 2px ${({ theme }) => theme.primary5};
     `}
 
-    &:hover {
-        color: var(--clr-primary-5);
-        box-shadow: 0 2px var(--clr-primary-5);
-    }
+    
 
     @media screen and (min-width: 992px) {
         margin-bottom: 1rem;
 
-        ${({ active }) => active && `
-            box-shadow: -2px 0 var(--clr-primary-5);
+        ${props => props.active && css`
+            box-shadow: -2px 0 ${({ theme }) => theme.primary5};
         `}
         
         &:hover {
-            box-shadow: -2px 0 var(--clr-primary-5);
+            box-shadow: -2px 0 ${({ theme }) => theme.primary5};
         }
     } 
 `;

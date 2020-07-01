@@ -1,35 +1,34 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { FaGithubSquare, FaShareSquare } from "react-icons/fa"
-import { ProjectContainer, ProjectImg, ProjectInfo, ProjectNumber, ProjectDescription, ProjectStack, ProjectGithub } from './Project.styles'
 
 const Project = ({ description, title, subtitle, github, stack, url, image, index }) => {
   stack = []
   return (
-    <ProjectContainer>
+    <article className="project">
       {image && (
-        <ProjectImg src={image} alt="project" />
+        <img src={image} className="project-img" alt="project" />
         // <Image fluid={image.childImageSharp.fluid} className="project-img" />
       )}
-      <ProjectInfo>
-        <ProjectNumber>0{index + 1}.</ProjectNumber>
+      <div className="project-info">
+        <span className="project-number">0{index + 1}.</span>
         <h3>{title || "default title"}</h3>
-        <ProjectDescription dangerouslySetInnerHTML={{__html: description}} ></ProjectDescription>
-        <ProjectStack>
+        <p className="project-desc" dangerouslySetInnerHTML={{__html: description}} ></p>
+        <div className="project-stack">
           {stack.map(item => {
             return <span key={item.id}>{item.title}</span>
           })}
-        </ProjectStack>
+        </div>
         <div className="project-links">
           <a href={github}>
-            <ProjectGithub />
+            <FaGithubSquare className="project-icon" />
           </a>
           <a href={url}>
             <FaShareSquare className="project-icon" />
           </a>
         </div>
-      </ProjectInfo>
-    </ProjectContainer>
+      </div>
+    </article>
   )
 }
 

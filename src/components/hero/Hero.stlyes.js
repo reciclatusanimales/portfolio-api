@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-    background: var(--clr-primary-10);
+    background: ${({ theme }) => theme.primary10};
 `;
 
 export const HeroCenter = styled.div`
@@ -16,7 +16,7 @@ export const HeroCenter = styled.div`
 
 export const HeroInfo = styled.article`
     h4 {
-     color: var(--clr-grey-5);
+     color: ${({ theme }) => theme.grey5};
     }
 `;
 
@@ -41,7 +41,7 @@ export const HeroImg = styled.article`
             position: absolute;
             width: 100%;
             height: 100%;
-            border: 0.25rem solid var(--clr-primary-5);
+            border: 0.25rem solid ${({ theme }) => theme.primary5};
             top: 2rem;
             right: -2rem;
             border-radius: var(--radius);

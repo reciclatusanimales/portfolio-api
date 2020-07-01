@@ -1,7 +1,6 @@
 import React from "react"
 import img from "../../assets/hero-img.jpeg"
 import { Link } from "gatsby"
-import SocialLinks from "../../constants/socialLinks"
 import { Header, HeroCenter, HeroInfo, HeroImg, HeroTitle } from './Hero.stlyes'
 
 const Hero = () => {

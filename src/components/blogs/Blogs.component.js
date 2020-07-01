@@ -1,5 +1,5 @@
 import React from "react"
-import Title from "../Title"
+import Title from "../title/Title.component"
 import Blog from "../blog/Blog.component"
 import { Link } from "gatsby"
 import { BlogsCenter } from './Blogs.styles'

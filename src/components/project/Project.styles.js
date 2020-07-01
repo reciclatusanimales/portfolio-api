@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { FaGithubSquare } from "react-icons/fa"
+import { FaGithubSquare, FaShareSquare } from "react-icons/fa"
 
 export const ProjectImg = styled.img`
     border-top-left-radius: var(--radius);
     border-top-right-radius: var(--radius);
     height: 19rem;
     z-index: 1;
+    opacity: 0.5;
 
     &:after {
         content: "";
@@ -14,9 +15,10 @@ export const ProjectImg = styled.img`
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom right, var(--clr-primary-5), #222);
+        background: linear-gradient(to bottom right, red, #222);
         opacity: 0.85;
         transition: var(--transition);
+        z-index:10;
     }
 
     @media screen and (min-width: 576px) {
@@ -55,6 +57,7 @@ export const ProjectInfo = styled.div`
         grid-column: 5 /12;
         grid-row: 1 / 1;
     }
+    color: blue;
 `;
 
 export const ProjectContainer = styled.section`
@@ -62,7 +65,10 @@ export const ProjectContainer = styled.section`
     margin-bottom: 4rem;
 
     &:hover ${ProjectImg} {
-        opacity: 0;
+        opacity: 0.9;
+    }
+    &:hover ${ProjectInfo} {
+        color: red;
     }
 
     &:nth-of-type(even) ${ProjectImg} {
@@ -85,13 +91,13 @@ export const ProjectContainer = styled.section`
 export const ProjectNumber = styled.span`
     display: inline-block;
     font-size: 1.25rem;
-    color: var(--clr-primary-5);
+    color: ${({ theme }) => theme.primary5};
     margin-bottom: 0.75rem;
 `;
 
 export const ProjectDescription = styled.p`
     word-spacing: 15px;
-    color: var(--clr-grey-3);
+    color: ${({ theme }) => theme.grey3};
 `;
 
 export const ProjectStack = styled.div`
@@ -99,8 +105,8 @@ export const ProjectStack = styled.div`
 
     span {
         display: inline-block;
-        background: var(--clr-grey-9);
-        color: var(--clr-grey-5);
+        background: ${({ theme }) => theme.grey9};
+        color: ${({ theme }) => theme.grey5};
         margin-right: 0.5rem;
         padding: 0.25rem 0.5rem;
         border-radius: var(--radius);
@@ -111,12 +117,23 @@ export const ProjectStack = styled.div`
 `;
 
 export const ProjectGithub = styled(FaGithubSquare)`
-    color: var(--clr-primary-5);
+    color: ${({ theme }) => theme.primary5};
     font-size: 1.25rem;
     margin-right: 0.5rem;
     transition: var(--transition);
 
     &:hover {
-        color: var(--clr-primary-1);
+        color: ${({ theme }) => theme.primary1};
+    }
+`;
+
+export const ProjectSquare = styled(FaShareSquare)`
+    color: ${({ theme }) => theme.primary5};
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    transition: var(--transition);
+
+    &:hover {
+        color: ${({ theme }) => theme.primary1};
     }
 `;

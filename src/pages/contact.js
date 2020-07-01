@@ -2,42 +2,32 @@ import React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 
-const contact = () => {
+import { useTheme } from '../hooks/useTheme'
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from '../constants/themes';
+import { GlobalStyles } from '../global';
+import Contact from '../components/contact/Contact.component'
+
+export default () => {
+
+  const [theme, toggleTheme, componentMounted] = useTheme();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  if (!componentMounted) {
+    return <div />
+  }
+  
   return (
-    <Layout>
-      <SEO title="Contact" />
-      <section className="contact-page">
-        <article className="contact-form">
-          <h3>get in touch</h3>
-          <form action="" method="POST">
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="name"
-                className="form-control"
-              />
-              <input
-                type="email"
-                placeholder="email"
-                name="email"
-                className="form-control"
-              />
-              <textarea
-                name="message"
-                rows="5"
-                placeholder="message"
-                className="form-control"
-              ></textarea>
-            </div>
-            <button type="submit" className="submit-btn btn">
-              submit here
-            </button>
-          </form>
-        </article>
-      </section>
-    </Layout>
+    <ThemeProvider theme={themeMode}>
+      <>
+      <GlobalStyles />
+        <Layout theme={theme} toggleTheme={toggleTheme}>
+          <SEO title="Contact" />
+
+          <Contact />
+          
+        </Layout>
+      </>
+    </ThemeProvider>
   )
 }
-
-export default contact
