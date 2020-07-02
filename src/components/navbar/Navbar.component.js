@@ -4,7 +4,6 @@ import ThemeSwitch from "../ThemeSwitch"
 import { Nav, NavCenter, NavHeader, NavBtn, NavLinks } from "./Navbar.styles"
 import { Link } from "gatsby"
 import links from '../../constants/links'
-import { css } from 'styled-components'
 
 const Navbar = ({ toggleSidebar, theme, toggleTheme }) => {
 
@@ -12,7 +11,7 @@ const Navbar = ({ toggleSidebar, theme, toggleTheme }) => {
 
   useEffect(() => {
     const navbar = document.querySelector("#nav");
-    window.addEventListener("scroll", function () {
+    const fixNavbar = () => {
       if (window.pageYOffset > 80) {
         navbar.classList.add("navbar-fixed");
         setShowTheme(false);
@@ -20,8 +19,13 @@ const Navbar = ({ toggleSidebar, theme, toggleTheme }) => {
         navbar.classList.remove("navbar-fixed");
         setShowTheme(true);
       }
-    });
+    }
+    window.addEventListener("scroll", fixNavbar);
+    return () => {
+      window.removeEventListener('scroll', fixNavbar)
+    }
   }, []);
+
 
   return (
     <Nav id="nav">

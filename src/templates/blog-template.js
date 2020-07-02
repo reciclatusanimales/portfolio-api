@@ -1,7 +1,6 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import ReactMarkdown from "react-markdown"
 import SEO from "../components/SEO"
 
 import { useTheme } from '../hooks/useTheme'
@@ -12,7 +11,7 @@ import BlogDetail from '../components/blog-detail/BlogDetail.component'
 
 const BlogTemplate = ({ data }) => {
 
-  const { content, title, description, category, image } = data.blog
+  const { title, description } = data.blog
 
   const [theme, toggleTheme, componentMounted] = useTheme();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;

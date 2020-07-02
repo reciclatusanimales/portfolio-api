@@ -35,6 +35,16 @@ module.exports = {
         options: {
           url: "http://reciclatusanimales.com/api/projects",
           rootKey: "projects",
+          schemas:  {
+            projects: `
+              title: String
+              description: String
+              image: String, 
+              github: String, 
+              url: String, 
+              featured: Boolean
+            `
+        }
       }
     },
     {
@@ -42,6 +52,13 @@ module.exports = {
         options: {
           url: "http://reciclatusanimales.com/api/jobs",
           rootKey: "jobs",
+          schemas:  {
+            jobs: `
+              company: String
+              position: String
+              date: Date
+            `
+        }
       }
     },
     {
@@ -49,6 +66,16 @@ module.exports = {
       options: {
           url: "http://reciclatusanimales.com/api/blogs",
           rootKey: "blogs",
+          schemas:  {
+            blogs: `
+              title: String
+              description: String
+              image: String, 
+              content: String, 
+              slug: String,
+              created_at: Date
+            `
+        }
       }
     },
     {

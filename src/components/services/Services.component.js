@@ -1,7 +1,7 @@
 import React from "react"
 import Title from "../title/Title.component"
 import services from "../../constants/services"
-import { ServicesCenter, Service } from './Services.styles'
+import { Service } from './Services.styles'
 
 const Services = () => {
   return (

@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 import { BlogsCenter } from './Blogs.styles'
 
 export const Blogs = ({ blogs, title, showLink }) => {
+
   return (
     <section className="section">
       <Title title={title} />
