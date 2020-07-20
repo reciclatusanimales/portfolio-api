@@ -5,13 +5,13 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ('pk','title', 'description', 'image', 'github','url','featured')
+        fields = ('pk','title', 'subtitle', 'description', 'image', 'github','url','featured')
 
 class BlogSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Blog
-        fields = ('pk','title', 'description', 'category.name', 'image', 'content','slug','created_at')
+        fields = ('pk','title', 'description', 'category', 'image', 'content','slug','created_at')
 
 class JobSerializer(serializers.ModelSerializer):
 
