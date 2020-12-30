@@ -131,7 +131,7 @@ dmypy.json
 
 
 # Porfolio
-db.database
+*.database
 passenger_wsgi.py
 tmp/
 static/

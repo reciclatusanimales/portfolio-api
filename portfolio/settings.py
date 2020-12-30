@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'portafolio',
         'HOST': 'localhost',
         'USER': 'postgres',
-        'PASSWORD': 'daPV96G7N3b$',
+        'PASSWORD': 'JGDO.jgdo.5620',
         'PORT': 5432
     }
 }
