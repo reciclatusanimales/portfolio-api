@@ -1,6 +1,14 @@
 from django.db import models
 from django.utils.text import slugify
+from taggit.models import TagBase
 from taggit.managers import TaggableManager
+
+class Stack(TagBase):
+    image = models.ImageField(upload_to='tags/', blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Stack"
+        verbose_name_plural = "Stacks"
 
 # Projects
 class Project(models.Model):
@@ -12,7 +20,7 @@ class Project(models.Model):
     github = models.URLField(blank=True, null=True)
     url = models.URLField()
     featured = models.BooleanField(default=True)    
-    stack = TaggableManager(blank=True)
+    stack = models.ForeignKey(Stack, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.title

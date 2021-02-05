@@ -1,20 +1,24 @@
 from rest_framework import serializers
-from .models import Project, Category, Blog, Job
+from .models import Project, Category, Blog, Job, Stack
+
+
+class StackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Stack
+        fields = '__all__'
 
 class ProjectSerializer(serializers.ModelSerializer):
-    stack = serializers.SerializerMethodField()
+    stack = StackSerializer()
 
     class Meta:
         model = Project
         fields = ('pk','title', 'subtitle', 'description', 'content', 'image', 'github','url','featured', 'stack')
 
     def get_stack(self, obj):
-        return [{ 'id':tag.id, 'slug': tag.slug, 'name': tag.name } for tag in obj.stack.all()]
-
-    
+        return 123
+        # return [{ 'id':tag.id, 'slug': tag.slug, 'name': tag.name } for tag in obj.stack.all()]
 
 class CategorySerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Category
         fields = '__all__'
