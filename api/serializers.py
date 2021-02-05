@@ -5,7 +5,7 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ('pk','title', 'subtitle', 'description', 'content', 'image', 'github','url','featured')
+        fields = ('pk','title', 'subtitle', 'description', 'content', 'image', 'github','url','featured', 'stack')
 
 class CategorySerializer(serializers.ModelSerializer):
 
