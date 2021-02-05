@@ -1,7 +1,10 @@
 from rest_framework import serializers
 from .models import Project, Category, Blog, Job
+from taggit_serializer.serializers import (TagListSerializerField,
+                                           TaggitSerializer)
 
-class ProjectSerializer(serializers.ModelSerializer):
+class ProjectSerializer(TaggitSerializer, serializers.ModelSerializer):
+    stack = TagListSerializerField()
 
     class Meta:
         model = Project

@@ -42,9 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    
     'corsheaders',
     'django_summernote',
+    'taggit_serializer',
     'rest_framework',
     'taggit',
 
