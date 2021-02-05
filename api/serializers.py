@@ -5,7 +5,7 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ('pk','title', 'subtitle', 'description', 'image', 'github','url','featured')
+        fields = ('pk','title', 'subtitle', 'description', 'content', 'image', 'github','url','featured')
 
 class CategorySerializer(serializers.ModelSerializer):
 
@@ -24,4 +24,4 @@ class JobSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Job
-        fields = ('pk','company', 'position', 'date')
+        fields = ('pk','company', 'position', 'date')        
