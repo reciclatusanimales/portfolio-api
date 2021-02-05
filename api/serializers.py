@@ -8,7 +8,7 @@ class StackSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProjectSerializer(serializers.ModelSerializer):
-    stack = StackSerializer()
+    stack = StackSerializer(many=True, read_only=True)
 
     class Meta:
         model = Project

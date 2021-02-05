@@ -20,7 +20,7 @@ class Project(models.Model):
     github = models.URLField(blank=True, null=True)
     url = models.URLField()
     featured = models.BooleanField(default=True)    
-    stack = models.ForeignKey(Stack, null=True, on_delete=models.SET_NULL)
+    stack = models.ManyToManyField(Stack)
 
     def __str__(self):
         return self.title
