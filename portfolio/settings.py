@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     
     'corsheaders',
     'django_summernote',
-    'taggit_serializer',
     'rest_framework',
     'taggit',
 

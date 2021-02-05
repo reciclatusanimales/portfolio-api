@@ -1,14 +1,17 @@
 from rest_framework import serializers
 from .models import Project, Category, Blog, Job
-from taggit_serializer.serializers import (TagListSerializerField,
-                                           TaggitSerializer)
 
-class ProjectSerializer(TaggitSerializer, serializers.ModelSerializer):
-    stack = TagListSerializerField()
+class ProjectSerializer(serializers.ModelSerializer):
+    stack = serializers.SerializerMethodField()
 
     class Meta:
         model = Project
         fields = ('pk','title', 'subtitle', 'description', 'content', 'image', 'github','url','featured', 'stack')
+
+    def get_stack(self, obj):
+        return [{ 'id':tag.id, 'slug': tag.slug, 'name': tag.name } for tag in obj.stack.all()]
+
+    
 
 class CategorySerializer(serializers.ModelSerializer):
 
