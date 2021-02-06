@@ -18,7 +18,7 @@ def projects_list(request):
         previousPage = 1
         projects = Project.objects.all().order_by('id')
         page = request.GET.get('page', 1)
-        paginator = Paginator(projects, 10)
+        paginator = Paginator(projects, 20)
         try:
             data = paginator.page(page)
         except PageNotAnInteger:
