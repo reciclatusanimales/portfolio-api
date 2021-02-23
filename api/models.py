@@ -19,6 +19,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to='projects/', blank=True, null=True)
     github = models.URLField(blank=True, null=True)
     url = models.URLField()
+    order = models.IntegerField(blank=True, null=True)
     featured = models.BooleanField(default=True)    
     stack = models.ManyToManyField(Stack)
 

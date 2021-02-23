@@ -12,7 +12,8 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ('pk','title', 'subtitle', 'description', 'content', 'image', 'github','url','featured', 'stack')
+        fields = ('pk','title', 'subtitle', 'description', 'content', 'image', 'github','url','featured', 'stack', 'order')
+        ordering = ["order"]
 
     def get_stack(self, obj):
         return 123
