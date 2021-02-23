@@ -16,7 +16,7 @@ def projects_list(request):
         data = []
         nextPage = 1
         previousPage = 1
-        projects = Project.objects.all().order_by('id')
+        projects = Project.objects.all().order_by('order')
         page = request.GET.get('page', 1)
         paginator = Paginator(projects, 20)
         try:

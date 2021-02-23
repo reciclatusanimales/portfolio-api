@@ -23,6 +23,9 @@ class Project(models.Model):
     featured = models.BooleanField(default=True)    
     stack = models.ManyToManyField(Stack)
 
+    class Meta:
+        ordering = ['order']
+
     def __str__(self):
         return self.title
 
