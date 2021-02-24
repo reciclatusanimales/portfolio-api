@@ -13,6 +13,8 @@ urlpatterns = [
 
     url(r'^api/projects/$', views.projects_list),
     url(r'^api/projects/(?P<pk>[0-9]+)$', views.projects_detail),
+    
+    url(r'^api/stacks/$', views.stacks_list),
 
     url(r'^api/blogs/$', views.blogs_list),
     url(r'^api/blogs/(?P<pk>[0-9]+)$', views.blogs_detail),

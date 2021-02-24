@@ -5,6 +5,8 @@ from taggit.managers import TaggableManager
 
 class Stack(TagBase):
     image = models.ImageField(upload_to='tags/', blank=True, null=True)
+    order = models.IntegerField(blank=True, null=True)
+    featured = models.BooleanField(default=True)  
 
     class Meta:
         verbose_name = "Stack"

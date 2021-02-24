@@ -6,6 +6,7 @@ class StackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stack
         fields = '__all__'
+        ordering = ['order']
 
 class ProjectSerializer(serializers.ModelSerializer):
     stack = StackSerializer(many=True, read_only=True)
