@@ -9,6 +9,7 @@ class Stack(TagBase):
     featured = models.BooleanField(default=True)  
 
     class Meta:
+        ordering = ['order']
         verbose_name = "Stack"
         verbose_name_plural = "Stacks"
 
