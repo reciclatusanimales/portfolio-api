@@ -10,15 +10,17 @@ class StackSerializer(serializers.ModelSerializer):
 
 class ProjectSerializer(serializers.ModelSerializer):
     stack = StackSerializer(many=True, read_only=True)
-
+    
     class Meta:
         model = Project
         fields = ('pk','title', 'subtitle', 'description', 'content', 'image', 'github','url','featured', 'stack', 'order')
         ordering = ['order']
 
-    def get_stack(self, obj):
-        return 123
-        # return [{ 'id':tag.id, 'slug': tag.slug, 'name': tag.name } for tag in obj.stack.all()]
+    def to_representation(self, instance):
+        response = super(ProjectSerializer, self).to_representation(instance)
+        if instance.image:
+            response['imageName'] = str(instance.image)
+        return response
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
