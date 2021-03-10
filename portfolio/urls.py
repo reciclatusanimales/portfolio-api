@@ -5,7 +5,9 @@ from api import views
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.decorators.csrf import csrf_exempt
 
+from graphene_django.views import GraphQLView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -21,6 +23,10 @@ urlpatterns = [
     
     url(r'^api/jobs/$', views.jobs_list),
     url(r'^api/jobs/(?P<pk>[0-9]+)$', views.jobs_detail),
+
+    path('graphql', csrf_exempt(GraphQLView.as_view(graphiql=True))),
+
+    path('send-email', csrf_exempt(views.send_email), name="send_email")
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

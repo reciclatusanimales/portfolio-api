@@ -21,10 +21,13 @@ class Project(models.Model):
     content = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='projects/', blank=True, null=True)
     github = models.URLField(blank=True, null=True)
-    url = models.URLField()
+    url = models.URLField(blank=True, null=True)
     order = models.IntegerField(blank=True, null=True)
     featured = models.BooleanField(default=True)    
     stack = models.ManyToManyField(Stack)
+
+    def imageUrl(self):
+        return self.image.url
 
     class Meta:
         ordering = ['order']
