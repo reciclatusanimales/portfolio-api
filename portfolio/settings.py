@@ -10,7 +10,8 @@ SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = (env('ENVIRONMENT') == 'development')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'reciclatusanimales.com', 'www.reciclatusanimales.com']
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(',')
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -24,13 +25,19 @@ INSTALLED_APPS = [
     'django_summernote',
     'rest_framework',
     'taggit',
+    'graphene_django',
 
     'api',
 ]
 
+GRAPHENE = {
+    'SCHEMA': 'api.schema.schema'
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -61,11 +68,11 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio',
-        'HOST': '107.6.142.229',
-        'USER': 'postgres',
-        'PASSWORD': 'daPV96G7N3b$',
-        'PORT': 5432
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),        
     }
 }
 
@@ -84,9 +91,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 
@@ -102,7 +109,7 @@ MEDIA_ROOT = env('MEDIA_ROOT', default=BASE_DIR + "/media")
 
 CORS_ORIGIN_ALLOW_ALL = False
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
-)
+CORS_ORIGIN_WHITELIST = tuple(env('CORS_ORIGIN_WHITELIST').split(','))
+
+EMAIL_SENDER_URL = env('EMAIL_SENDER_URL')
+EMAIL_SENDER_API_KEY = env('EMAIL_SENDER_API_KEY')
