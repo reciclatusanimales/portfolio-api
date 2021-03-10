@@ -135,3 +135,4 @@ dmypy.json
 passenger_wsgi.py
 tmp/
 static/
+media/
