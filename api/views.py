@@ -13,7 +13,6 @@ import requests
 import time
 from .constants import contact_template_slug, email_sender_url, email_sender_api_key
 import urllib3
-http = urllib3.PoolManager()
 
 @api_view(['GET'])
 def projects_list(request):
@@ -176,6 +175,8 @@ def jobs_detail(request, pk):
 
 def send_email(request):
     json_response = {'success': False}
+
+    http = urllib3.PoolManager()
 
     data = json.loads(request.body.decode("utf-8"))
 
