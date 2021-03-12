@@ -9,7 +9,6 @@ from .serializers import *
 from django.http import JsonResponse
 import json
 from .utils import api_response
-import requests
 import time
 from .constants import contact_template_slug, email_sender_url, email_sender_api_key
 import urllib3
