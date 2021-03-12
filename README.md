@@ -1,4 +1,4 @@
-# 🖧 PORTFOLIO API
+# 🗄️ Portfolio API
 
 This is the API backend that feeds the frontend of the Portfolio App. It is built with [Django](https://www.djangoproject.com/), [Django REST framework](https://www.django-rest-framework.org/) and [Graphene-Django](https://docs.graphene-python.org/projects/django/) to serve routes with normal API json responses and [GraphQL](https://www.apollographql.com/) resolvers.
 
