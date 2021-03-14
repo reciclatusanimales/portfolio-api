@@ -4,9 +4,17 @@ from .models import Project, Stack
 
 class ProjectType(DjangoObjectType):
     image_url = graphene.String()
+    thumbnail_url = graphene.String()
 
     def resolve_image_url(self, info):
-        return info.context.build_absolute_uri(self.image.url)
+        if self.image:
+            return info.context.build_absolute_uri(self.image.url)
+        return ""
+
+    def resolve_thumbnail_url(self, info):
+        if self.thumbnail:
+            return info.context.build_absolute_uri(self.thumbnail.url)
+        return ""
 
     class Meta:
         model = Project
