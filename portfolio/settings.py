@@ -101,6 +101,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+SESSION_COOKIE_AGE = 1209600
+
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [ env('STATICFILES_DIRS', default=BASE_DIR + "/assets") ]
