@@ -7,7 +7,7 @@ class StackAdmin(admin.ModelAdmin):
 
 class ProjectAdmin(SummernoteModelAdmin):
     list_display = ['title', 'subtitle', 'url', 'order', 'stack_list', 'featured']
-    summernote_fields = ['description']
+    summernote_fields = ['subtitle', 'description']
 
     def get_queryset(self, request):
         return super().get_queryset(request).prefetch_related('stack')
