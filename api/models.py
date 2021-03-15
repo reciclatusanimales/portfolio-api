@@ -7,6 +7,7 @@ class Stack(TagBase):
     image = models.ImageField(upload_to='tags/', blank=True, null=True)
     order = models.IntegerField(blank=True, null=True)
     featured = models.BooleanField(default=True)  
+    category = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         ordering = ['order']
